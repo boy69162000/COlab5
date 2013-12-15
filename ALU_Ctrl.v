@@ -71,9 +71,10 @@ always@(*) begin
                                     ALUCtrl_o   <= 4'b0010;
                                     BonusCtrl_o <= 3'b010;
                                 end
-                                default: begin 
+                                default: begin
                                     ALUCtrl_o   <= 4'b1111;
-                                    BonusCtrl_o <= funct_i[1] ==1'b1 ? 3'b101 : 3'b000;
+                                    BonusCtrl_o <= funct_i[1] ==1'b1 ?
+                                                       3'b101 : 3'b000;
                                 end
                             endcase
 

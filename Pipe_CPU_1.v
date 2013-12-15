@@ -112,14 +112,14 @@ Pipe_Reg #(.size(64)) IF_ID(
 Hazard HDU(
         .memread(memr_o_idex),
         .instr_i(instr_o_ifid[31:16]),
-	    .idex_regt(instr_o_idex[20:16]),
-	    .branch(branch_o_exmem & rzmux),
-	    .j(bonusctrl[1]),
-	    .pcwrite(pcwrite),
-	    .ifid_write(ifid_write),
-	    .ifid_flush(ifid_flush),
-	    .idex_flush(idex_flush),
-	    .exmem_flush(exmem_flush)
+        .idex_regt(instr_o_idex[20:16]),
+        .branch(branch_o_exmem & rzmux),
+        .j(bonusctrl[1]),
+        .pcwrite(pcwrite),
+        .ifid_write(ifid_write),
+        .ifid_flush(ifid_flush),
+        .idex_flush(idex_flush),
+        .exmem_flush(exmem_flush)
         );
 
 Reg_File RF(

@@ -1,34 +1,34 @@
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date:     
-// Design Name: 
+// Company:
+// Engineer:
+//
+// Create Date:
+// Design Name:
 // Module Name:    Hazard
-// Project Name: 
-// Target Devices: 
-// Tool versions: 
-// Description: 
+// Project Name:
+// Target Devices:
+// Tool versions:
+// Description:
 //
-// Dependencies: 
+// Dependencies:
 //
-// Revision: 
-// Revision 
-// Additional Comments: 
+// Revision:
+// Revision
+// Additional Comments:
 //
 //////////////////////////////////////////////////////////////////////////////////
 module Hazard
 (
-	memread,
-	instr_i,
-	idex_regt,
-	branch,
-	j,
-	pcwrite,
-	ifid_write,
-	ifid_flush,
-	idex_flush,
-	exmem_flush
+    memread,
+    instr_i,
+    idex_regt,
+    branch,
+    j,
+    pcwrite,
+    ifid_write,
+    ifid_flush,
+    idex_flush,
+    exmem_flush
 );
 
 input       memread;

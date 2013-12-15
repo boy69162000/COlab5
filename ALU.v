@@ -14,7 +14,7 @@ module alu(
            src1,          // 32 bits source 1          (input)
            src2,          // 32 bits source 2          (input)
            ALU_control,   // 4 bits ALU control input  (input)
-           bonus_control, // 3 bits bonus control input(input 
+           bonus_control, // 3 bits bonus control input(input)
            result,        // 32 bits result            (output)
            zero,          // 1 bit when the output is 0, zero must be set (output)
            cout,          // 1 bit carry out           (output)
@@ -83,8 +83,8 @@ always@(*) begin
     case(ALU_control)
         4'b1111: begin
             case(bonus_control)
-                3'b101: s1 <= (src1[0]==1'b1 ? {1'd0, src2[31:1]} : src2); 
-                default: s1 <= (src1[0]==1'b1 ? {src2[30:0], 1'd0} : src2); 
+                3'b101: s1 <= (src1[0]==1'b1 ? {1'd0, src2[31:1]} : src2);
+                default: s1 <= (src1[0]==1'b1 ? {src2[30:0], 1'd0} : src2);
             endcase
         end
         default: s1 <= 32'd0;
@@ -95,8 +95,8 @@ always@(*) begin
     case(ALU_control)
         4'b1111: begin
             case(bonus_control)
-                3'b101: s2 <= (src1[1]==1'b1 ? {2'd0, s1[31:2]} : s1); 
-                default: s2 <= (src1[1]==1'b1 ? {s1[29:0], 2'd0} : s1); 
+                3'b101: s2 <= (src1[1]==1'b1 ? {2'd0, s1[31:2]} : s1);
+                default: s2 <= (src1[1]==1'b1 ? {s1[29:0], 2'd0} : s1);
             endcase
         end
         default: s2 <= 32'd0;
@@ -145,7 +145,7 @@ assign mulR = src1 * src2;
 ///
 always@(*) begin
     case(rst_n)
-        1'b0: begin 
+        1'b0: begin
             result = 32'd0;
             zero = 1'b0;
             cout = c31;
@@ -157,7 +157,7 @@ always@(*) begin
                 4'b1011: result[31:0] <= mulR[31:0];
                 default: result[31:0] <= R[31:0];
             endcase
-            
+
             case(result[31:0])
                 32'd0: zero <= 1'b1;
                 default: zero <= 1'b0;

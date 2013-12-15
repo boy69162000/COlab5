@@ -1,20 +1,20 @@
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date:     
-// Design Name: 
+// Company:
+// Engineer:
+//
+// Create Date:
+// Design Name:
 // Module Name:    Forwarding
-// Project Name: 
-// Target Devices: 
-// Tool versions: 
-// Description: 
+// Project Name:
+// Target Devices:
+// Tool versions:
+// Description:
 //
-// Dependencies: 
+// Dependencies:
 //
-// Revision: 
-// Revision 
-// Additional Comments: 
+// Revision:
+// Revision
+// Additional Comments:
 //
 //////////////////////////////////////////////////////////////////////////////////
 module Forwarding(
