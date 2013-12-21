@@ -54,7 +54,7 @@ always@(*) begin
                 1'b1: control_o <= 5'b11110;
                 1'b0: begin
                     if(memread == 1'b1 && (instr_i[9:5] == idex_regt || (instr_i[4:0] == idex_regt && instr_i[15:10] != 6'b001000)))
-                        control_o <= 5'b00000;
+                        control_o <= 5'b00010;
                     else
                         control_o <= 5'b11000;
                 end

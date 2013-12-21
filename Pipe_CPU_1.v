@@ -267,7 +267,7 @@ Pipe_Reg #(.size(240)) EX_MEM(
             .write(1'b1),
             .data_i({aluresult_i_exmem, pcb_i_exmem,
                      pcn_o_idex, {pcn_o_idex[31:28], instr_o_idex[25:0], 2'b00},
-                     rdata1_o_idex, rdata2_o_idex, signex_i_exmem,
+                     forwarda_data, forwardb_data, signex_i_exmem,
                      btype_o_idex, mtor_o_idex,
                      regtow_i_exmem, zero_i_exmem,
                      regw_o_idex, branch_o_idex, 
