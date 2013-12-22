@@ -100,7 +100,7 @@ Instruction_Memory IM(
         .instr_o(instr_i_ifid)
         );
 
-Pipe_Reg #(.size(64)) IF_ID(       
+Pipe_Reg #(.size(64)) IF_ID(
             .clk_i(clk_i),
             .rst_n(rst_n),
             .flush(ifid_flush),
@@ -154,12 +154,12 @@ ShiftAmount_Extend SA(
         .data_o(SAex_i_idex)
         );
 
-Pipe_Reg #(.size(170)) ID_EX(       
+Pipe_Reg #(.size(170)) ID_EX(
             .clk_i(clk_i),
             .rst_n(rst_n),
             .flush(idex_flush),
             .write(1'b1),
-            .data_i({rdata1_i_idex, rdata2_i_idex, instr_o_ifid[25:0], pcn_o_ifid, 
+            .data_i({rdata1_i_idex, rdata2_i_idex, instr_o_ifid[25:0], pcn_o_ifid,
                      SAex_i_idex, aluop_i_idex, regd_i_idex,
                      btype_i_idex, mtor_i_idex, regw_i_idex,
                      alusrc_i_idex, branch_i_idex, sign_i_idex,
@@ -228,7 +228,7 @@ alu ALU(
         .cout(cout),
         .overflow(overflow)
         );
-        
+
 MUX_4to1 #(.size(5)) Mux_Write_Reg(
         .data0_i(instr_o_idex[20:16]),
         .data1_i(instr_o_idex[15:11]),
@@ -237,12 +237,12 @@ MUX_4to1 #(.size(5)) Mux_Write_Reg(
         .select_i(regd_o_idex),
         .data_o(regtow_i_exmem)
         );
-        
+
 Shift_Left_Two_32 Shifter(
         .data_i(signex_i_exmem),
         .data_o(sl2data)
         );
-        
+
 Adder Adder2(
         .src1_i(pcn_o_idex),
         .src2_i(sl2data),
@@ -260,7 +260,7 @@ Forwarding FU(
         .forwardb(forwardb)
         );
 
-Pipe_Reg #(.size(240)) EX_MEM(       
+Pipe_Reg #(.size(240)) EX_MEM(
             .clk_i(clk_i),
             .rst_n(rst_n),
             .flush(exmem_flush),
@@ -270,7 +270,7 @@ Pipe_Reg #(.size(240)) EX_MEM(
                      forwarda_data, forwardb_data, signex_i_exmem,
                      btype_o_idex, mtor_o_idex,
                      regtow_i_exmem, zero_i_exmem,
-                     regw_o_idex, branch_o_idex, 
+                     regw_o_idex, branch_o_idex,
                      j_o_idex, memr_o_idex,
                      bonusctrl[1], memw_o_idex}),
             .data_o({aluresult_o_exmem, pcb_o_exmem,
@@ -278,7 +278,7 @@ Pipe_Reg #(.size(240)) EX_MEM(
                      rdata1_o_exmem, rdata2_o_exmem, signex_o_exmem,
                      btype_o_exmem, mtor_o_exmem,
                      regtow_o_exmem, zero_o_exmem,
-                     regw_o_exmem, branch_o_exmem, 
+                     regw_o_exmem, branch_o_exmem,
                      j_o_exmem, memr_o_exmem,
                      bonus_o_exmem, memw_o_exmem})
         );
@@ -301,7 +301,7 @@ MUX_4to1 #(.size(1)) Result_Zero_Mux(
         .select_i(btype_o_exmem),
         .data_o(rzmux)
         );
-        
+
 MUX_2to1 #(.size(32)) Mux_PC_Source(
         .data0_i(pcn_o_exmem),
         .data1_i(pcb_o_exmem),
@@ -315,8 +315,8 @@ MUX_2to1 #(.size(32)) Mux_Jump(
         .select_i(j_o_exmem),
         .data_o(pci)
         );
-        
-Pipe_Reg #(.size(136)) MEM_WB(       
+
+Pipe_Reg #(.size(136)) MEM_WB(
             .clk_i(clk_i),
             .rst_n(rst_n),
             .flush(1'b0),
