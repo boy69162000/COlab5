@@ -75,7 +75,7 @@ wire        regw_o_memwb;
 MUX_4to1 #(.size(32)) Mux_Return(
         .data0_i(pcn_i_ifid),
         .data1_i(pci),
-        .data2_i(rdata1_o_idex),
+        .data2_i(forwarda_data),
         .data3_i(pci),
         .select_i({bonusctrl[1], (branch_o_exmem & rzmux)|j_o_exmem}),
         .data_o(pc)
